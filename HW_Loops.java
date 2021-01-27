@@ -2,27 +2,17 @@ import java.util.*;
 
 public class HW_Loops {
     public static void main(String[] args){
-        Scanner keyboard = new Scanner(System.in);
-        String userInput = firstAsk();
-        // validCheck(userInput);
+       
+        overall();
         
-        if(validCheck(userInput)){
-            System.out.println("Thank you for adding the following valid string: "+userInput.toUpperCase());
-        }
-        else{
-            System.out.println("Seems that not all characters are G,A,T or C. Here is what you entered: "
-            +userInput.toUpperCase()+". Please try again or enter exit to stop");
-            String userInput2 = keyboard.next();
-            if(userInput2.equals("exit")){
-                System.out.println("Goodbye!");
-            }
-            else{
-               firstAsk();
-            }
-        }
-
-     
         //end of main method
+    }
+
+    //main ask overall
+    public static void overall(){
+        String userInput = firstAsk();
+        sanityCheck(userInput);
+        //end of overall
     }
 
     //first ask
@@ -55,6 +45,26 @@ public class HW_Loops {
             return true;
         }
         //end of valid check
+    }
+
+    public static void sanityCheck(String userInput){
+        Scanner keyboard = new Scanner(System.in);
+        if(validCheck(userInput)){
+            System.out.println("Thank you for adding the following valid string: "+userInput.toUpperCase());
+            //call next function from here re checks of C and num 2 and 3
+        }
+        else{
+            System.out.println("Seems that not all characters are G,A,T or C. Here is what you entered: "
+            +userInput.toUpperCase()+". Please try again or enter exit to stop");
+            String userInput2 = keyboard.next();
+            if(userInput2.equals("exit")){
+                System.out.println("Goodbye!");
+            }
+            else{
+              sanityCheck(userInput2);
+            }
+        }
+        //end of sanity check
     }
 
 
