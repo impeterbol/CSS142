@@ -14,32 +14,23 @@ public class HW_Loops {
     public static void overall(){
         String userInput = firstAsk();
         sanityCheck(userInput);
-        System.out.println("here is userInput after passing to sanity " +
-         userInput.toUpperCase());
+        System.out.println("Sequence1: " +
+        userInput.toUpperCase());
+        occurenceC(userInput);
+        fractionCG(userInput);
+        compliment(userInput);
+
+        String userInput2 = firstAsk();
+        sanityCheck(userInput2);
+        System.out.println("Sequence2: " +
+        userInput2.toUpperCase());
+        occurenceC(userInput2);
+        fractionCG(userInput2);
+        compliment(userInput2);
 
          //call next function from here re checks of C and num 2 and 3
-
-            //exercise #1 - count number of C occurences. 
-            //I have done it via concat of strings just to not use counter second time 
-            //but it can also be solved via counter 
-            occurenceC(userInput);
-
-            //exercise #2 Determine the fraction of cytosine
-            //  and guanine nucleotides. For example, if half of the 
-            //  nucleotides in the sequence are either "C" or "G", the fraction should be 
-            //  0.5.  If a sequence was "CGAATTTT", the fraction should be 0.25 (25% are C or G)
-            fractionCG(userInput);
-
-            // exercise #3 A DNA strand is actually made up of pairs of bases — 
-            // in effect, two strands that are cross-linked together. 
-            // These two strands are complementary: if you know one,
-            //  you can always determine the other, 
-            // or complement, because each nucleotide only pairs up with one other. 
-            // In particular, "A" and "T" are complements, as are "C" and "G". 
-            // So, for example, the complement of the sequence "AAGGTCT" would be "TTCCAGA". 
-            // Compute the complement of the input sequence.
-            compliment(userInput);
-
+         pairwise(userInput, userInput2);
+        
 
         //end of overall
     }
@@ -85,19 +76,22 @@ public class HW_Loops {
         else{
             System.out.println("Seems that not all characters are G,A,T or C. Here is what you entered: "
             +userInput.toUpperCase()+". Please try again or enter exit to stop");
-            String userInput2 = keyboard.next();
-            if(userInput2.equals("exit")){
+            String userInput3 = keyboard.next();
+            if(userInput3.equals("exit")){
                 System.out.println("Goodbye!");
             }
             else{
                 // System.out.println("I am else ");
-              sanityCheck(userInput2);
+              sanityCheck(userInput3);
 
             }
         }
         //end of sanity check
     }
 
+     //exercise #1 - count number of C occurences. >> occurenceC(userInput);
+            //I have done it via concat of strings just to not use counter second time 
+            //but it can also be solved via counter 
     public static int occurenceC(String userInput){
         String cOccurence = "";
         for(int i=0;i<userInput.toUpperCase().length();i++){
@@ -106,12 +100,17 @@ public class HW_Loops {
             }
         }
         int numberOfC = cOccurence.length();
-        System.out.println("#1 Total the number of Cs entered is "+
-         numberOfC+".");
+        System.out.println("C-count: "+ numberOfC);
         return numberOfC;
         //end of C occurence
     }
     
+
+       //exercise #2 Determine the fraction of cytosine >>fractionCG(userInput);
+            //  and guanine nucleotides. For example, if half of the 
+            //  nucleotides in the sequence are either "C" or "G", the fraction should be 
+            //  0.5.  If a sequence was "CGAATTTT", the fraction should be 0.25 (25% are C or G)
+            
     public static double fractionCG(String userInput){
         double counter = 0;
         for(int i=0;i<userInput.toUpperCase().length();i++){
@@ -130,7 +129,16 @@ public class HW_Loops {
         return cgFraction;
     }
 
-
+ // exercise #3  >>compliment(userInput);
+            //A DNA strand is actually made up of pairs of bases — 
+            // in effect, two strands that are cross-linked together. 
+            // These two strands are complementary: if you know one,
+            //  you can always determine the other, 
+            // or complement, because each nucleotide only pairs up with one other. 
+            // In particular, "A" and "T" are complements, as are "C" and "G". 
+            // So, for example, the complement of the sequence "AAGGTCT" would be "TTCCAGA". 
+            // Compute the complement of the input sequence.
+            
     public static String compliment(String userInput){
         String compl = "";
         for(int i=0;i<userInput.toUpperCase().length();i++){
@@ -148,12 +156,27 @@ public class HW_Loops {
                 compl=compl+"C";
             }
         }
-        System.out.println("here is compliment string "+compl);
+        System.out.println("Here is compliment string "+compl);
         return compl;
 
         //end of compliment method
     }
 
+        public static void pairwise(String userInput, String userInput2){
+            int counter1 =0;
+            if(userInput.length()==userInput2.length()){
+                for (int i=0;i<userInput.length();i++){
+                   
+                        if(userInput.toUpperCase().charAt(i)==userInput2.toUpperCase().charAt(i)){
+                            counter1++;
+            
+                    }
+                }
+            }
+
+
+           System.out.println("This is pairwise "+userInput+" and also "+userInput2+" and counter "+counter1);
+        }
 
 
 
