@@ -188,6 +188,8 @@ public class HW_Loops {
     }
 
         public static void pairwise(String userInput, String userInput2){
+                      
+
             int counterSameLength=0;
 
             if(inputsEqual(userInput,userInput2)){
@@ -223,6 +225,24 @@ public class HW_Loops {
 
             userInput2Right=alignRight(userInput2, userInput.length());
             counterAlignRight1 = checkChars(userInput, userInput2Right);
+
+                // ensuring that case of odd numbers is covered
+            String oneS= " ";
+            
+            if(userInput.length()%2!=0 && userInput2.length()%2==0){
+               
+                userInput = userInput+ oneS;
+            }
+            else if (userInput.length()%2!=0 && userInput2.length()%2!=0){
+                userInput = userInput+ oneS;
+                userInput2 = userInput2 +oneS;
+            }
+            else if(userInput.length()%2==0 && userInput2.length()%2!=0){
+                userInput = userInput+ oneS+oneS;
+                userInput2 = userInput2 +oneS;
+            }
+
+            // ensuring that case of odd numbers is covered
 
             userInput2Center=alignCenter(userInput2, userInput.length());
             counterAlignCenter1 = checkChars(userInput, userInput2Center);
@@ -264,6 +284,24 @@ public class HW_Loops {
                 userInputRight=alignRight(userInput, userInput2.length());
                 counterAlignRight2 = checkChars(userInputRight, userInput2);
 
+            // ensuring that case of odd numbers is covered
+                String oneS= " ";
+            
+            if(userInput.length()%2!=0 && userInput2.length()%2==0){
+               
+                userInput = userInput+ oneS;
+            }
+            else if (userInput.length()%2!=0 && userInput2.length()%2!=0){
+                userInput = userInput+ oneS;
+                userInput2 = userInput2 +oneS;
+            }
+            else if(userInput.length()%2==0 && userInput2.length()%2!=0){
+                userInput = userInput+ oneS+oneS;
+                userInput2 = userInput2 +oneS;
+            }
+            
+            // ensuring that case of odd numbers is covered
+
                 userInputCenter=alignCenter(userInput, userInput.length());
                 counterAlignCenter2 = checkChars(userInputCenter, userInput2);
 
@@ -271,7 +309,7 @@ public class HW_Loops {
 
                 System.out.println("Best alignment score is "+ alignmentScore2);
 
-
+            
                 if(alignmentScore2 == counterAlignLeft2){
                     System.out.println(userInputLeft);
                     System.out.println(userInput2.toUpperCase());
@@ -299,7 +337,7 @@ public class HW_Loops {
             int counter=0;
             for (int i=0;i<userInput.length();i++){
                   
-                if(userInput.toUpperCase().charAt(i)==userInput2.toUpperCase().charAt(i)){
+                if((userInput.toUpperCase().charAt(i)==userInput2.toUpperCase().charAt(i)) && (userInput.toUpperCase().charAt(i)!=' ' || userInput2.toUpperCase().charAt(i)!=' ') ){
                     counter++;
     
                 }
