@@ -118,7 +118,9 @@ public class HW_Loops_Files{
 
             
             
-            weightedAverage = weightedAverage(line, programWeight,midtermWeight,finalExamweight);
+            weightedAverage = weightedAverage(line, programWeight,
+            midtermWeight,finalExamweight);
+            
             classAverage+=weightedAverage;
             if (weightedAverage>=70){
                 passFail="Pass";
@@ -127,7 +129,8 @@ public class HW_Loops_Files{
                 passFail="Fail";
             }
             
-           System.out.print(studentID +"  " +programScore + "    " +midtermScore + "   " +finalScore + "     ");
+           System.out.print(studentID +"  " +programScore + 
+           "    " +midtermScore + "   " +finalScore + "     ");
            System.out.printf("%.2f", weightedAverage);
            System.out.print("   " + passFail);
            System.out.println();
@@ -136,13 +139,17 @@ public class HW_Loops_Files{
            
         }
         
-        System.out.println("Class average is "+ (classAverage/(double)studentsPerGradeCounter));
+        System.out.println("Class average is "+ 
+        (classAverage/(double)studentsPerGradeCounter));
        
     
     //end of grading method   
     };
 
-        public static double weightedAverage(String line, double programWeight, double midtermWeight, double finalExamweight){
+        public static double weightedAverage(String line, 
+        double programWeight, double midtermWeight, 
+        double finalExamweight){
+
         int studentId = 0;
         int programScore = 0;
         int midtermScore = 0;
