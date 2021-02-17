@@ -1,6 +1,8 @@
 //Peter Boldyrev CSS 142
 //Feb 12 - HW Loops_FIles (I/O)
 
+//testing method called on line 62 and outlined on line 182
+
 import java.util.Scanner;
 import java.util.NoSuchElementException;
 import java.io.FileInputStream;
@@ -57,6 +59,10 @@ public class HW_Loops_Files{
             
         }
         //getting exam weights end
+
+
+        // testVariableValues(finalExamweight);
+
 
         //starts grading method for every grade identified via gradeCounter
         //passing Scanner and weights from lines 46-56
@@ -118,7 +124,9 @@ public class HW_Loops_Files{
 
             
             
-            weightedAverage = weightedAverage(line, programWeight,midtermWeight,finalExamweight);
+            weightedAverage = weightedAverage(line, programWeight,
+            midtermWeight,finalExamweight);
+            
             classAverage+=weightedAverage;
             if (weightedAverage>=70){
                 passFail="Pass";
@@ -127,7 +135,8 @@ public class HW_Loops_Files{
                 passFail="Fail";
             }
             
-           System.out.print(studentID +"  " +programScore + "    " +midtermScore + "   " +finalScore + "     ");
+           System.out.print(studentID +"  " +programScore + 
+           "    " +midtermScore + "   " +finalScore + "     ");
            System.out.printf("%.2f", weightedAverage);
            System.out.print("   " + passFail);
            System.out.println();
@@ -136,13 +145,17 @@ public class HW_Loops_Files{
            
         }
         
-        System.out.println("Class average is "+ (classAverage/(double)studentsPerGradeCounter));
+        System.out.println("Class average is "+ 
+        (classAverage/(double)studentsPerGradeCounter));
        
     
     //end of grading method   
     };
 
-        public static double weightedAverage(String line, double programWeight, double midtermWeight, double finalExamweight){
+        public static double weightedAverage(String line, 
+        double programWeight, double midtermWeight, 
+        double finalExamweight){
+
         int studentId = 0;
         int programScore = 0;
         int midtermScore = 0;
@@ -164,6 +177,10 @@ public class HW_Loops_Files{
 
             //end of studentAverage
             return weightedAverage;
+        }
+
+        public static void testVariableValues(double someValue){
+            System.out.print("This is a value that were testing: "+someValue);
         }
 
        
