@@ -63,16 +63,21 @@ public class Lab7 {
     }
 
     //3
-
+    // int [] testArr1 = {3,8,5,6,5,8,9,2};
+    // int [] testArr2 = {5,15,4,6,7,3,9,11,9,3,12,13,14,9,5,3,13};
+    //3 5 6 9 0 0 0 0
+    // [3, 0, 5, 6, 5, 0, 9, 0]
     public static void findCommon(int[] arr1, int[] arr2,int[] arr3){
-        String testingArr3 = "";
+        String temp="";
         if(arr1.length<arr2.length){
-            for(int i=0;i<arr1.length-1;i++){
-                for(int j=0;j<arr2.length-1;j++){
+            for(int i=0;i<arr1.length;i++){
+                for(int j=0;j<arr2.length;j++){
                     if(arr1[i]==arr2[j]){
-                        arr3[i]=arr1[i];
-                       
+                       arr3[i]=arr1[i];
+                       temp+=arr1[i];
+                        
                     }
+               
                    
                 }
                 
@@ -81,13 +86,28 @@ public class Lab7 {
         else{
             System.out.println("I was lazy to mirror the method so please enter first array shorter than second :) ");
         }
-
-        for(int i=0;i<arr3.length-1;i++){
-            if(arr3[i]==0&&arr3[i+1]!=0){
-                arr3[i]=arr3[i+1];
-            }
-        }
         System.out.println(Arrays.toString(arr3));
+        System.out.println(temp + " TEMP");
+
+//remove duplicates from array
+        for(int i=arr3.length-1;i>=0;i--){
+           for(int j=i-1;j>0;j--){
+               if(arr3[i]==arr3[j]){
+                   arr3[i]=0;
+               }
+               System.out.println("here is i "+ arr3[i]);
+               System.out.println("here is j "+ arr3[j]);
+               }
+               System.out.println("===============");
+           }
+
+           for(int k=1;k<arr3.length;k++){
+
+           }
+        
+        
+        System.out.println(Arrays.toString(arr3));
+        //end of findCommon
     }
 
     //end of class
